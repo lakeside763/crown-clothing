@@ -1,5 +1,6 @@
 import React from "react";
 import CustomButton from "../custom-button/custom-button.component";
+import { toast } from "react-toast";
 
 import FormInput from "../form-input/form-input.component";
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
@@ -23,6 +24,7 @@ class SignIn extends React.Component {
 
     try {
       await auth.signInWithEmailAndPassword(email, password);
+      toast.success(`${email} login successfully`);
       this.setState({ email: "", password: "" });
     } catch (error) {
       console.log(error.message);
