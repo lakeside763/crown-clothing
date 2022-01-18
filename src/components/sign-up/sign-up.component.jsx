@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { toast } from 'react-toast';
 import FormInput from './../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
@@ -38,6 +38,8 @@ class SignUp extends React.Component {
         password: '',
         confirmPassword: ''
       });
+
+      toast.success(`${email} created successfully`);
     } catch (error) {
       console.log(error.message);
     }
